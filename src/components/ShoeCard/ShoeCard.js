@@ -31,11 +31,20 @@ const ShoeCard = ({
       ? 'new-release'
       : 'default'
 
+  let Flag;
+  if (variant === 'on-sale') {
+    Flag = FlagSale;
+  } else if (variant === 'new-release') {
+    Flag = FlagNewRelease;
+  } else {
+    Flag = FlagEmpty;
+  }
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
-          <Image alt="" src={imageSrc} />
+          <Flag />
+          <Image alt='' src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -51,8 +60,10 @@ const ShoeCard = ({
 };
 
 const Link = styled.a`
+  width: 32%;
   text-decoration: none;
   color: inherit;
+  margin-bottom: 30px;
 `;
 
 const Wrapper = styled.article``;
@@ -61,9 +72,35 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const FlagEmpty = styled.div`
+  padding: 9px 18px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  color: white;
+`;
+
+const FlagSale = styled(FlagEmpty)`
+  background-color: ${COLORS.primary};
+  &:after {
+    content: 'Sale';
+  }
+`;
+
+const FlagNewRelease = styled(FlagEmpty)`
+  background-color: ${COLORS.secondary};
+  &:after {
+    content: 'Just Released!';
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+`;
 
 const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
   font-size: 1rem;
 `;
 

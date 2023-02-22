@@ -14,15 +14,18 @@ const SuperHeader = () => {
         Free shipping on domestic orders over $75!
       </MarketingMessage>
       <SearchInput />
-      <HelpLink href="/help">Help</HelpLink>
+      <HelpLink href='/help'>Help</HelpLink>
       <UnstyledButton>
-        <Icon id="shopping-bag" strokeWidth={1} />
+        <Icon id='shopping-bag' strokeWidth={1} />
       </UnstyledButton>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  gap: 20px;
+  display: flex;
+  padding: 10px 30px;
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
@@ -30,6 +33,7 @@ const Wrapper = styled.div`
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
+  margin-right: auto;
 `;
 
 const HelpLink = styled.a`

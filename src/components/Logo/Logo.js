@@ -5,13 +5,15 @@ import { WEIGHTS } from '../../constants';
 
 const Logo = (props) => {
   return (
-    <Link href="/">
+    <Link href='/'>
       <Wrapper {...props}>Sole&amp;Ankle</Wrapper>
     </Link>
   );
 };
 
 const Link = styled.a`
+  position: absolute;
+  left: 32px;
   text-decoration: none;
   color: inherit;
 `;
